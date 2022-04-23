@@ -1,14 +1,32 @@
-<p style="color: green"><%= notice %></p>
+<div class="m-5">
+  <p style="color: green"><%= notice %></p>
+  
+  <h1 class="text-center pt-3">Categories</h1>
+  
+  <div id="categories">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>        
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @categories.each do |category| %>
+        <tr>            
+          <td><%= category.name %></td>
+          <td>
+            <button type="button" class="btn btn-success">
+              <%= link_to "Show this category", category, class: 'text-light' %>
+            </button>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>        
+  </div>
 
-<h1>Categories</h1>
-
-<div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
-  <% end %>
+  <button type="button" class="btn btn-primary">
+    <%= link_to "New category", new_category_path, class: 'text-light' %>
+  </button>
 </div>
-
-<%= link_to "New category", new_category_path %>

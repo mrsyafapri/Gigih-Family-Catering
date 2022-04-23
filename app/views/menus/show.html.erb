@@ -1,10 +1,16 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @menu %>
-
-<div>
-  <%= link_to "Edit this menu", edit_menu_path(@menu) %> |
-  <%= link_to "Back to menus", menus_path %>
-
-  <%= button_to "Destroy this menu", @menu, method: :delete %>
+<div class="m-5">
+  <p style="color: green"><%= notice %></p>
+  
+  <div class="card" style="width: 50%;">
+    <div class="card-body">
+      <h5 class="card-title"><%= @menu.name %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= @menu.price %></h6>
+      <p class="card-text"><%= @menu.description %></p>
+      <%= link_to "Edit this menu", edit_menu_path(@menu), class: 'card-link'  %>
+      <%= link_to "Back to menus", menus_path, class: 'card-link' %>
+    </div>
+  </div>
+  <div>  
+    <%= button_to "Destroy this menu", @menu, method: :delete, class: 'btn btn-danger'%>
+  </div>
 </div>

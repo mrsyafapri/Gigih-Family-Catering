@@ -1,14 +1,36 @@
-<p style="color: green"><%= notice %></p>
+<div class="m-5">
+  <p style="color: green"><%= notice %></p>
 
-<h1>Menus</h1>
+  <h1 class="text-center pt-3">Daftar Menu</h1>
+  
+  <div id="menus">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Description</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @menus.each do |menu| %>
+        <tr>            
+          <td><%= menu.name %></td>
+          <td><%= menu.price %></td>
+          <td><%= menu.description %></td>
+          <td>
+            <button type="button" class="btn btn-success">
+              <%= link_to "Show this menu", menu, class: 'text-light' %>
+            </button>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>    
+  </div>
 
-<div id="menus">
-  <% @menus.each do |menu| %>
-    <%= render menu %>
-    <p>
-      <%= link_to "Show this menu", menu %>
-    </p>
-  <% end %>
+  <button type="button" class="btn btn-primary">
+    <%= link_to "New menu", new_menu_path, class: 'text-light' %>
+  </button>
 </div>
-
-<%= link_to "New menu", new_menu_path %>
